@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+       let Auth = String(Math.floor(Math.random()*1000000)).padStart(6, String(Math.random()*10))
+       console.log(Auth)
+
+        // document를 사용하여 javascript파일에서 html로 연결
+        // document === html
+        // html tag === 요소 === element
+        function aaa(){
+            document.getElementById("hello").innerText = "반갑습니다"
+        }
+
+        function getAuthNum(){
+            let Auth = String(Math.floor(Math.random()*1000000)).padStart(6, String(Math.random()*10))
+            let current = document.getElementById("authNum")
+            current.innerText = Auth
+            current.style.color = '#'+Auth
+        }
+
+    </script>
+</head>
+<body>
+    <h1>인증번호 만들기</h1>
+    <span id="authNum">000000</span>
+    <button onclick="getAuthNum()">인증번호 전송</button>
+</body>
+</html>

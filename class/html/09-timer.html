@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+        // function startTimer(condition){
+        //     let time = 180;
+        //     let timer = setInterval(function(){
+        //         if(time > 0){
+        //             let min = Math.floor(time/60)
+        //             let sec = String(time%60).padStart(2, "0")
+        //             time = time -1
+        //             document.getElementById("min").innerText = min
+        //             document.getElementById("sec").innerText = sec
+        //         }
+        //         if (!condition){
+        //         clearInterval(timer)
+        //         let message = document.createElement('p')
+        //         message.innerHTML = "인증에 성공하였습니다!"
+        //         let body = document.getElementById('body')
+        //         body.appendChild(message)
+        //     }
+        //     }, 1000)
+        // }
+
+        function getAuthNum(){
+            let Auth = String(Math.floor(Math.random()*1000000)).padStart(6, String(Math.random()*10))
+            let current = document.getElementById("authNum")
+            current.innerText = Auth
+            current.style.color = '#'+Auth
+
+            //startTimer(true)
+            document.getElementById("button").setAttribute("disabled", true)
+            let timer = 180;
+            setInterval(function(){
+                if(timer > 0){
+                    let min = Math.floor(timer/60)
+                    let sec = String(timer%60).padStart(2, "0")
+                    timer = timer -1
+                    document.getElementById("min").innerText = min
+                    document.getElementById("sec").innerText = sec
+                }
+            }, 1000)
+        }
+
+    </script>
+</head>
+<body id ="body">
+    <h1>인증번호 만들기</h1>
+    <span id="authNum">000000</span>
+    <button onclick="getAuthNum()" id = "button">인증번호 전송</button>
+    <br/>
+    <span id = "min">3</span>
+    <span>:</span>
+    <span id = "sec">00</span>
+    <button id = "authFinished" onclick="startTimer(false)">인증완료</button>
+
+</body>
+</html>
